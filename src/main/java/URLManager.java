@@ -5,7 +5,7 @@ import java.util.concurrent.Future;
 
 public class URLManager {
     private static int number = 1000;
-    public StatList getStatList(UrlList urlList){
+    public static StatList getStatList(UrlList urlList){
         ArrayList<Future> futures = new ArrayList<Future>();
         StatList statList = new StatList();
         ExecutorService service = Executors.newFixedThreadPool(number);
