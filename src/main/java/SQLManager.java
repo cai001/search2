@@ -9,7 +9,7 @@ public class SQLManager {
 
 // Метод, который создаёт соединение с базой данных, запрашивает набор URL-адресов
 // и заносит их в возвращаемый список в виде объектов, с параметрами id и url
-    public UrlList getUrlList(String date){
+    public static UrlList getUrlList(String date){
         UrlList urllist = new UrlList();
         Connection connection = null;
         try{
@@ -47,7 +47,7 @@ public class SQLManager {
 // Получаемый список состоит из объектов, с параметрами id и status.
 // В таблице базы данных для каждого полученного id изменяется status в соответствии с полученным,
 // дата последней проверки статуса изменяется на текущую.
-    public int update(StatList statList){
+    public static int update(StatList statList){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String date = sdf.format(new java.util.Date());
         Connection connection = null;
