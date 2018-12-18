@@ -4,10 +4,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class URLManager {
+    private static int number = 1000;
     public StatList getStatList(UrlList urlList){
         ArrayList<Future> futures = new ArrayList<Future>();
         StatList statList = new StatList();
-        ExecutorService service = Executors.newCachedThreadPool();
+        ExecutorService service = Executors.newFixedThreadPool(number);
 
         while(!urlList.isEmpty()){
             futures.add(service.submit(new UrlThread( urlList, statList)));
@@ -22,9 +23,10 @@ public class URLManager {
             try{
                 Thread.sleep(100);
             }catch (InterruptedException ie){
-                System.out.println();
+                System.out.println("Ожидание неудачно:\n" + ie);
             }
         }
+        service.shutdown();
         return statList;
     }
 }

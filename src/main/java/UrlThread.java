@@ -1,12 +1,8 @@
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.net.*;
 
 public class UrlThread implements Runnable{
     public Thread thread;
-    private String name;
     private String url;
     private int id;
     private StatList statList;
@@ -23,16 +19,21 @@ public class UrlThread implements Runnable{
             URL hp = new URL(url);
             hpCon = (HttpURLConnection) hp.openConnection();
             statList.add(new Statobj(id, hpCon.getResponseCode()));
-        }catch (UnknownHostException uhe){
+        }catch (UnknownHostException e){
             statList.add(new Statobj(id, 600));
-        }catch (ConnectException ce){
+            System.out.println("По указанному URL, Host несуществует:\n" + e);
+        }catch (MalformedURLException e){
             statList.add(new Statobj(id, 601));
-            System.out.println("Сеть перегружена");
-        }catch(Exception e){
-            System.out.println(e);
+            System.out.println("Ссылка URL задана неверно:\n" + e);
+        }catch (ConnectException e){
+            statList.add(new Statobj(id, 602));
+            System.out.println("Сеть перегружена:\n" + e);
+        }catch(IOException e){
+            statList.add(new Statobj(id, 603));
+            System.out.println("Непредвиденый обрыв связи:\n" + e);
         }finally{
             if(hpCon != null){
-                hpCon.disconnect();
+               hpCon.disconnect();
             }
         }
 
