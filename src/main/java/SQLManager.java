@@ -6,6 +6,7 @@ public class SQLManager {
     private static String url = "jdbc:mysql://localhost:3306/urllist?useSSL=false";
     private static String login = "mysql";
     private static String password = "mysql";
+    private static String table = "urllistg";
 
 // Метод, который создаёт соединение с базой данных, запрашивает набор URL-адресов
 // и заносит их в возвращаемый список в виде объектов, с параметрами id и url
@@ -16,7 +17,7 @@ public class SQLManager {
             connection = DriverManager.getConnection(url, login, password);
             Statement statement = connection.createStatement();
             try{
-                ResultSet resultSet = statement.executeQuery("SELECT id, url FROM urllistg WHERE date < '" + date + "' or date is null");
+                ResultSet resultSet = statement.executeQuery("SELECT id, url FROM " + table + " WHERE date < '" + date + "' or date is null");
                 while (resultSet.next()){
 
 //     В каждом цикле добавляется по одному URL-обекту в лист специального вида
@@ -59,7 +60,7 @@ public class SQLManager {
                 int id = statList.get(0).id;         //Получаем id из первого объекта в списке
                 statList.remove(0);               //Убираем первый объект из списка, на его место сдвигается второй
                 Statement statement = connection.createStatement();
-                n += statement.executeUpdate("UPDATE urllistg SET date = '" + date +
+                n += statement.executeUpdate("UPDATE " + table + " SET date = '" + date +
                         "', status = " + status + " WHERE id = " + id);
 
                 statement.close();

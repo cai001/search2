@@ -18,6 +18,7 @@ public class SQLManagerTest {
     static String url = "jdbc:mysql://localhost:3306/urllist?useSSL=false";
     static String login = "mysql";
     static String password = "mysql";
+    static String table = "urllistg";
     static String date = "20181218";
     Connection connection = null;
 
@@ -27,7 +28,7 @@ public class SQLManagerTest {
         try{
             connection = DriverManager.getConnection(url, login, password);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM urllistg WHERE (date < '" + date + "' or date is null)");
+            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM " + table + " WHERE (date < '" + date + "' or date is null)");
             resultSet.next();
             expected = resultSet.getInt(1);
             statement.close();
@@ -63,7 +64,7 @@ public class SQLManagerTest {
         try{
             connection = DriverManager.getConnection(url, login, password);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT MIN(id), status FROM urllistg");
+            ResultSet resultSet = statement.executeQuery("SELECT MIN(id), status FROM " + table);
             resultSet.next();
             id = resultSet.getInt(1);
             status = resultSet.getInt(2);
