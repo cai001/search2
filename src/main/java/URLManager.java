@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class URLManager {
-    private static int number = 1000;
+    private static int number = 700;
     public static StatList getStatList(UrlList urlList){
         ArrayList<Future> futures = new ArrayList<Future>();
         StatList statList = new StatList();

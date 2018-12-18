@@ -7,15 +7,15 @@ public class search {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/hh/mm/ss/SSS");
         System.out.println(sdf.format(starttime) + "/Робот запущен");
         String date = "20181111";
-//        if (args.length == 1){
-//            date = args[0];
-//        }
-//        else{
-//            System.out.println("Вы не задали дату, пожалуста добавьте к команде дату, отступив пробел.\n" +
-//                                "Дату необходимо ввести в очередности ГОД-МЕСЯЦ-ДЕНЬ без пробелов");
-//            System.exit(1);
-//        }
-//        System.out.println(new java.util.Date());
+        if (args.length == 1){
+            date = args[0];
+        }
+        else{
+            System.out.println("Вы не задали дату, пожалуста добавьте к команде дату, отступив пробел.\n" +
+                                "Дату необходимо ввести в очередности ГОД-МЕСЯЦ-ДЕНЬ без пробелов");
+            System.exit(1);
+        }
+        System.out.println(new java.util.Date());
 // Подключение драйвера MySQL
         try{
             Class.forName("com.mysql.jdbc.Driver");

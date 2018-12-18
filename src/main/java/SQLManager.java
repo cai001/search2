@@ -30,7 +30,7 @@ public class SQLManager {
 
             statement.close();
         }catch (SQLException ex){
-            System.out.println("Не получено соединение с базой данных");
+            System.out.println("Не получено соединение с базой данных 3");
         }finally {
             if (connection != null){
                 try{
@@ -65,7 +65,7 @@ public class SQLManager {
                 statement.close();
             }
         }catch (SQLException ex){
-            System.out.println("Не получено соединение с базой данных");
+            System.out.println(ex);
         }finally {
             if (connection != null){
                 try{
