@@ -15,17 +15,17 @@ To build and run the robot correctly, it is necessary to install the next applic
 - mysql-server
 ## Prepare
 You need to change MySQL connection parameters to your `-url`, `-login`, `-password` and `-table` in the files:
-```
-~/search2/src/main/java/SQLManager.java
 
-~/search2/src/test/java/SQLManagerTest.java
-```
-Also, you can change URL threads pool size `number` (default size equals 700) in the files:
-```
-~/search2/src/main/java/URLManager.java
+>~/search2/src/main/java/SQLManager.java
 
-~/search2/src/test/java/URLManagerTest.java
-```
+>~/search2/src/test/java/SQLManagerTest.java
+
+Also, you can change URL threads pool size `number` (default size equals `700`) in the files:
+
+>~/search2/src/main/java/URLManager.java
+
+>~/search2/src/test/java/URLManagerTest.java
+
 ## Installation
 
 You have to start command line or terminal
