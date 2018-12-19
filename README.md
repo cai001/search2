@@ -39,7 +39,7 @@ in the next step, start building the robot:
 ```
 ## Runnig
 
-The robot can be run with the following command:
+The robot can be run with the following command from the project root directory:
 ```cmd
 >java -jar search-2 20181212
 ```
@@ -63,7 +63,7 @@ The following user statuses are applied when receiving exceptions:
 
 ### WARNING: Next you need the -Docker
 
-After installation, run the command <b>(the dot is needed)</b>:
+After installation, run the command from the project root directory <b>(the dot is needed)</b>:
 ```cmd
 >docker build -t search-2 .
 ```
