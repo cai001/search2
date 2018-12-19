@@ -22,7 +22,7 @@ public class UrlThread implements Runnable{
 
 //With each exception, the link status takes a custom value equal to 600 or greater
         }catch (UnknownHostException e){
-            statList.add(new Statobj(id, 600));//Link invalid status
+            statList.add(new Statobj(id, 600));//Invalid link
             System.out.println(e);
         }catch (MalformedURLException e){
             statList.add(new Statobj(id, 601));//Invalid link construction
