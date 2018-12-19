@@ -43,13 +43,13 @@ The robot can be run with the following command from the project root directory:
 ```cmd
 >java -jar search-2 20181212
 ```
-You should set a date for the selection of rows with later dates.
+You need to set a date for the selection. After that rows with later dates will be selected.
 
 ## Result
 
 The robot returns the standard link statuses.
 
-The following user statuses are applied when receiving exceptions:
+The following irregular statuses are applied when receiving exceptions:
 
 - `600` – Invalid link;
 
@@ -70,7 +70,7 @@ After installation, run the command from the project root directory <b>(the dot 
 
 The Docker creates an image of the robot.
 
-But also, you can to pull this bot by Docker:
+But also, you can to pull the image of this bot using Docker:
 ```cmd
 >docker pull cai001/search-2
 ```
