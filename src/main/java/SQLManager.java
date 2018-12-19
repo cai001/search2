@@ -24,20 +24,20 @@ public class SQLManager {
                     urllist.add(new Urlobj(resultSet.getInt("id"), resultSet.getString("url")));
                 }
             }catch (SQLException ex){
-                System.out.println("Проверьте правильность ввода даты\n" +
-                        "Дату необходимо ввести в очередности ГОД-МЕСЯЦ-ДЕНЬ без пробелов");
+                System.out.println("Check your date format\n" +
+                        "Date format should be as YYYYMMDD");
                 System.exit(130);
             }
 
             statement.close();
         }catch (SQLException ex){
-            System.out.println("Не получено соединение с базой данных 3");
+            System.out.println(ex);
         }finally {
             if (connection != null){
                 try{
                     connection.close();
                 }catch (SQLException ex){
-                    System.out.println("Не получается закрыть соединение с базой данных");
+                    System.out.println(ex);
                 }
             }
         }
@@ -72,7 +72,7 @@ public class SQLManager {
                 try{
                     connection.close();
                 }catch (SQLException ex){
-                    System.out.println("Не получается закрыть соединение с базой данных");
+                    System.out.println(ex);
                 }
             }
         }

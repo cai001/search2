@@ -11,7 +11,7 @@ public class StatList {
     }
     synchronized public boolean add(Statobj e){
         return al.add(e);
-    }
+    }//Synchronized method for use by the thread pool is added
     public Statobj remove(int i){
         return al.remove(i);
     }

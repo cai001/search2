@@ -8,13 +8,13 @@ public class UrlList {
     }
     synchronized public Urlobj get(int i){
          return al.get(i);
-    }
+    }//Synchronized method for use by the thread pool is added
     public boolean add(Urlobj e){
         return al.add(e);
     }
     synchronized public Urlobj remove(int i){
         return al.remove(i);
-    }
+    }//Synchronized method for use by the thread pool is added
     public int size(){
         return al.size();
     }

@@ -17,20 +17,22 @@ public class UrlThread implements Runnable{
         HttpURLConnection hpCon = null;
         try{
             URL hp = new URL(url);
-            hpCon = (HttpURLConnection) hp.openConnection();
-            statList.add(new Statobj(id, hpCon.getResponseCode()));
+            hpCon = (HttpURLConnection) hp.openConnection();//Try to connect
+            statList.add(new Statobj(id, hpCon.getResponseCode()));//Making status list after getting link status
+
+//With each exception, the link status takes a custom value equal to 600 or greater
         }catch (UnknownHostException e){
-            statList.add(new Statobj(id, 600));
-            System.out.println("По указанному URL, Host несуществует:\n" + e);
+            statList.add(new Statobj(id, 600));//Link invalid status
+            System.out.println(e);
         }catch (MalformedURLException e){
-            statList.add(new Statobj(id, 601));
-            System.out.println("Ссылка URL задана неверно:\n" + e);
+            statList.add(new Statobj(id, 601));//Invalid link construction
+            System.out.println(e);
         }catch (ConnectException e){
-            statList.add(new Statobj(id, 602));
-            System.out.println("Сеть перегружена:\n" + e);
+            statList.add(new Statobj(id, 602));//Network overloaded
+            System.out.println(e);
         }catch(IOException e){
-            statList.add(new Statobj(id, 603));
-            System.out.println("Непредвиденый обрыв связи:\n" + e);
+            statList.add(new Statobj(id, 603));//Other exceptions
+            System.out.println(e);
         }finally{
             if(hpCon != null){
                hpCon.disconnect();
