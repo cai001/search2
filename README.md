@@ -14,17 +14,11 @@ To build and run the robot correctly, it is necessary to install the next applic
 - apache-maven-3.X.X
 - mysql-server
 ## Prepare
-You need to change MySQL connection parameters to your `-url`, `-login`, `-password` and `-table` in the files:
+You need to change MySQL connection parameters to your `-url`, `-login`, `-password` and `-table` in the file:
 
->~/search2/src/main/java/SQLManager.java
+>~/search2/src/main/resources/data.txt
 
->~/search2/src/test/java/SQLManagerTest.java
-
-Also, you can change URL threads pool size `number` (default size equals `700`) in the files:
-
->~/search2/src/main/java/URLManager.java
-
->~/search2/src/test/java/URLManagerTest.java
+Also into this file, you can change URL threads pool size `threadslimit` and searching parametr `date`.
 
 ## Installation
 
@@ -41,9 +35,8 @@ in the next step, start building the robot:
 
 The robot can be run with the following command from the project root directory:
 ```cmd
->java -jar search-2 20181212
+>java -jar search-2
 ```
-You need to set a date for the selection. After that rows with later dates will be selected.
 
 ## Result
 
