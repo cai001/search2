@@ -33,9 +33,10 @@ in the next step, start building the robot:
 ```
 ## Runnig
 
-The robot can be run with the following command from the project root directory:
+The robot can be run with the following commands from the project root directory:
 ```cmd
->java -jar search-2
+>cd target
+>java -jar search
 ```
 
 ## Result
@@ -58,7 +59,7 @@ The following irregular statuses are applied when receiving exceptions:
 
 After installation, run the command from the project root directory <b>(the dot is needed)</b>:
 ```cmd
->docker build -t search-2 .
+>docker build -t anyname .
 ```
 
 The Docker creates an image of the robot.
