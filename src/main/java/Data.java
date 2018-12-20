@@ -112,14 +112,14 @@ public class Data {
         }
         return string;
     }
-    public static int getThreadslimit(){
+    public static int getPoolsize(){
         int integer = 1;
         Scanner scanner = null;
         try{
             scanner = new Scanner(new File("src\\main\\resources\\data.txt"));
             while(scanner.hasNextLine()){
-                if (scanner.hasNext("threadslimit")){
-                    scanner.skip("threadslimit = ");
+                if (scanner.hasNext("poolsize")){
+                    scanner.skip("poolsize = ");
                     integer = Integer.parseInt(scanner.nextLine());
                 }else{
                     scanner.nextLine();

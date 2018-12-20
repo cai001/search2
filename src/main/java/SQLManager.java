@@ -48,11 +48,11 @@ public class SQLManager {
 // Получаемый список состоит из объектов, с параметрами id и status.
 // В таблице базы данных для каждого полученного id изменяется status в соответствии с полученным,
 // дата последней проверки статуса изменяется на текущую.
-    public static int update(StatList statList){
+    public static int[] update(StatList statList){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String date = sdf.format(new java.util.Date());
         Connection connection = null;
-        int n = 0;
+        int n[] = new int[2];
         try{
             connection = DriverManager.getConnection(url, login, password);
             while (!statList.isEmpty()){             //Опусташаем список статусов с занесением в базу данных
@@ -60,8 +60,12 @@ public class SQLManager {
                 int id = statList.get(0).id;         //Получаем id из первого объекта в списке
                 statList.remove(0);               //Убираем первый объект из списка, на его место сдвигается второй
                 Statement statement = connection.createStatement();
-                n += statement.executeUpdate("UPDATE " + table + " SET date = '" + date +
-                        "', status = " + status + " WHERE id = " + id);
+                if (status < 600){
+                    n[0] += statement.executeUpdate("UPDATE " + table + " SET date = '" + date +
+                            "', status = " + status + " WHERE id = " + id);
+                }else{
+                    n[1] += statement.executeUpdate("UPDATE " + table + " SET status = " + status + " WHERE id = " + id);
+                }
 
                 statement.close();
             }

@@ -85,7 +85,8 @@ public class SQLManagerTest {
         for(int i = 0; i < expected; i++){//Size of the list is expected value.
             statList.add(new Statobj(id, status));
         }
-        int actual = SQLManager.update(statList);//Update method getting actual value updated rows
+        int n[] = SQLManager.update(statList);//Update method getting actual value updated rows
+        int actual = n[0] + n[1];
         assertEquals(expected, actual);//comparing two values
     }
 }
