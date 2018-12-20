@@ -1,4 +1,4 @@
 FROM openjdk:8
 ADD target/search-2.jar search-2.jar
 EXPOSE 8085
-ENTRYPOINT ["java", "-jar", "search-2.jar", "20181212"]
+ENTRYPOINT ["java", "-jar", "search-2.jar"]
