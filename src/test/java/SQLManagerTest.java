@@ -1,8 +1,6 @@
 import org.junit.After;
 import org.junit.Test;
-
 import java.sql.*;
-
 import static org.junit.Assert.*;
 
 public class SQLManagerTest {
@@ -18,10 +16,10 @@ public class SQLManagerTest {
     }
 
 //Description connection parameters for your data base
-    static String url = "jdbc:mysql://localhost:3306/urllist?useSSL=false";
-    static String login = "mysql";
-    static String password = "mysql";
-    static String table = "urllistg";
+    private static String url = Data.getUrl();
+    private static String login = Data.getLogin();
+    private static String password = Data.getPssword();
+    private static String table = Data.getTable();
 //A date for select query
     static String date = "20181218";
 
@@ -87,7 +85,8 @@ public class SQLManagerTest {
         for(int i = 0; i < expected; i++){//Size of the list is expected value.
             statList.add(new Statobj(id, status));
         }
-        int actual = SQLManager.update(statList);//Update method getting actual value updated rows
+        int n[] = SQLManager.update(statList);//Update method getting actual value updated rows
+        int actual = n[0] + n[1];
         assertEquals(expected, actual);//comparing two values
     }
 }
