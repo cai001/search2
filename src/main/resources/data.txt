@@ -1,0 +1,6 @@
+date = 20181212
+url = jdbc:mysql://localhost:3306/urllist?useSSL=false
+login = mysql
+password = mysql
+table = urllistg
+threadslimit = 700

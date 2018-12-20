@@ -3,10 +3,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class SQLManager {
-    private static String url = "jdbc:mysql://localhost:3306/urllist?useSSL=false";
-    private static String login = "mysql";
-    private static String password = "mysql";
-    private static String table = "urllistg";
+    private static String url = Data.getUrl();
+    private static String login = Data.getLogin();
+    private static String password = Data.getPssword();
+    private static String table = Data.getTable();
 
 // Метод, который создаёт соединение с базой данных, запрашивает набор URL-адресов
 // и заносит их в возвращаемый список в виде объектов, с параметрами id и url

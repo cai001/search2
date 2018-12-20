@@ -1,20 +1,19 @@
+import sun.management.FileSystem;
+
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.io.*;
+import java.util.regex.Pattern;
+
+import com.thetransactioncompany.util.*;
 
 public class search {
-    public static void main(String args[]){
+    public static void main (String args[])throws Exception{
+        Data data = new Data();
         Date starttime = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/hh/mm/ss/SSS");
         System.out.println(sdf.format(starttime) + "/Robot is started");
-        String date = "20181111";
-//        if (args.length == 1){
-//            date = args[0];
-//        }
-//        else{
-//            System.out.println("You need to set a date after command so i get to work.\n" +
-//                                "Date format should be as YYYYMMDD");
-//            System.exit(1);
-//        }
+        String date = Data.getDate();
 
 // Подключение драйвера MySQL
         try{
